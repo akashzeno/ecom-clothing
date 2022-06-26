@@ -1,8 +1,13 @@
 import Image from "next/image.js";
 import Link from "next/link.js";
+import { useContext } from "react";
+import { UserContext } from "../context/context.js";
 import styles from "../styles/NavBar.module.css";
+import { signOutUser } from "../utils/firebase.js";
 
 export default function NavBar() {
+	const { currentUser } = useContext(UserContext);
+
 	return (
 		<nav className={styles.navBar}>
 			{/* <Image className={styles.logo}/> */}
@@ -20,9 +25,17 @@ export default function NavBar() {
 				<Link href="/shop">
 					<a className={styles.navLink}>SHOP</a>
 				</Link>
-				<Link href="/auth">
-					<a className={styles.navLink}>SIGN-IN</a>
-				</Link>
+				{currentUser ? (
+					<Link href="/auth">
+						<a className={styles.navLink} onClick={signOutUser}>
+							SIGN-OUT
+						</a>
+					</Link>
+				) : (
+					<Link href="/auth">
+						<a className={styles.navLink}>SIGN-IN</a>
+					</Link>
+				)}
 			</div>
 		</nav>
 	);

@@ -1,10 +1,13 @@
 import Layout from "../components/Layout.js";
+import { UserProvider } from "../context/context.js";
 import "../styles/globals.css";
 
 export default function MyApp({ Component, pageProps }) {
 	return (
-		<Layout>
-			<Component {...pageProps} />
-		</Layout>
+		<UserProvider>
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
+		</UserProvider>
 	);
 }

@@ -7,11 +7,9 @@ import {
 } from "../utils/firebase.js";
 import Button from "./Button.js";
 import FormInput from "./FormInput.js";
-
 export default function SignInForm() {
 	async function signInWithGoogle() {
-		const response = await signInWithGooglePopup();
-		await createUserDocFromAuth(response.user);
+		await signInWithGooglePopup();
 	}
 
 	const [formFields, setFormFields] = useState({
@@ -34,8 +32,11 @@ export default function SignInForm() {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		try {
-			const response = signInAuthUserWithEmailAndPassword(email, password);
-			console.log(response);
+			const { user } = await signInAuthUserWithEmailAndPassword(
+				email,
+				password
+			);
+
 			resetFormFields();
 		} catch (error) {
 			switch (error.code) {
