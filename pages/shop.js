@@ -5,6 +5,7 @@ import styles from "../styles/shop.module.css";
 
 export default function Shop() {
 	const { products } = useContext(ProductsContext);
+
 	return (
 		<div className={styles.productsContainer}>
 			{products.map((product) => (

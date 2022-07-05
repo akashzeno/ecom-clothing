@@ -1,7 +1,11 @@
 import Image from "next/image.js";
+import { useContext } from "react";
+import { CartContext } from "../context/cartContext.js";
 import styles from "../styles/CartIcon.module.css";
 
 export default function CartIcon() {
+	const { cartCount } = useContext(CartContext);
+
 	return (
 		<div className={styles.cartIconContainer}>
 			<Image
@@ -11,7 +15,7 @@ export default function CartIcon() {
 				height={24}
 				alt="Cart Icon"
 			/>
-			<span className={styles.itemCount}>0</span>
+			<span className={styles.itemCount}>{cartCount}</span>
 		</div>
 	);
 }
