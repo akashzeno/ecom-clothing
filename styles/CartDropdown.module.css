@@ -23,6 +23,10 @@
 		overflow: scroll;
 	}
 
+	.cartCheckout {
+		display: contents;
+	}
+
 	button {
 		margin-top: auto;
 	}
