@@ -1,3 +1,9 @@
+.categoryTitle {
+	font-size: 45px;
+	margin-bottom: 25px;
+	text-align: center;
+}
+
 .productsContainer {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);

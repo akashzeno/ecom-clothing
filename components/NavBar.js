@@ -1,7 +1,7 @@
 import Image from "next/image.js";
 import Link from "next/link.js";
 import { useContext } from "react";
-import { UserContext } from "../context/context.js";
+import { UserContext } from "../context/userContext.js";
 import { CartContext } from "../context/cartContext.js";
 import styles from "../styles/NavBar.module.css";
 import { signOutUser } from "../utils/firebase.js";

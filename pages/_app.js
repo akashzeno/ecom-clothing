@@ -1,19 +1,19 @@
 import Layout from "../components/Layout.js";
 import { CartProvider } from "../context/cartContext.js";
-import { UserProvider } from "../context/context.js";
-import { ProductsProvider } from "../context/productsContext.js";
+import { UserProvider } from "../context/userContext.js";
+import { CategoriesProvider } from "../context/categoriesContext.js";
 import "../styles/globals.css";
 
 export default function MyApp({ Component, pageProps }) {
 	return (
 		<UserProvider>
-			<ProductsProvider>
+			<CategoriesProvider>
 				<CartProvider>
 					<Layout>
 						<Component {...pageProps} />
 					</Layout>
 				</CartProvider>
-			</ProductsProvider>
+			</CategoriesProvider>
 		</UserProvider>
 	);
 }

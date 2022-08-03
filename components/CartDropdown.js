@@ -10,9 +10,11 @@ export default function CartDropdown() {
 	return (
 		<div className={styles.cartDropdownContainer}>
 			<div className={styles.cartItems}>
-				{cartItems.map((item) => (
-					<CartItem cartItem={item} key={item.id} />
-				))}
+				{cartItems.length ? (
+					cartItems.map((item) => <CartItem cartItem={item} key={item.id} />)
+				) : (
+					<span>Your Cart Is Empty!</span>
+				)}
 			</div>
 			<Link href="/checkout">
 				<a className={styles.cartCheckout}>
