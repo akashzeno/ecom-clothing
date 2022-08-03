@@ -9,6 +9,7 @@ export default function Category({ category: { title, imageUrl } }) {
 				layout="fill"
 				src={imageUrl}
 				objectFit="cover"
+				alt="background image"
 			></Image>
 			<div className={styles.categoryBodyContainer}>
 				<h2>{title}</h2>
