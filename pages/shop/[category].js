@@ -10,7 +10,7 @@ export default function Category() {
 
 	return (
 		<>
-			<h1 className={styles.categoryTitle}>{category.toUpperCase()}</h1>
+			<h1 className={styles.categoryTitle}>{category?.toUpperCase()}</h1>
 			<div className={styles.productsContainer}>
 				{categories[category]?.map((product) => (
 					<ProductCard key={product.id} product={product} />
