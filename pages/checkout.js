@@ -5,7 +5,6 @@ import { CartContext } from "../context/cartContext.js";
 
 export default function Checkout() {
 	const { cartItems, cartTotal } = useContext(CartContext);
-
 	return (
 		<div className={styles.checkoutContainer}>
 			<div className={styles.checkoutHeader}>

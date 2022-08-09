@@ -5,10 +5,9 @@ import styles from "../styles/CheckoutItem.module.css";
 
 export default function CheckoutItem({ checkoutItem }) {
 	const { name, price, quantity, imageUrl } = checkoutItem;
-	const { removeItemFromCart, changeCartItemQuantity } =
-		useContext(CartContext);
+	const { removeItemFromCart, setCartItemQuantity } = useContext(CartContext);
 	const changeProductItemQuantity = (event) =>
-		changeCartItemQuantity(checkoutItem, parseInt(event.target.value));
+		setCartItemQuantity(checkoutItem, parseInt(event.target.value));
 	const removeProductFromCart = () => removeItemFromCart(checkoutItem);
 	return (
 		<div className={styles.checkoutItemContainer}>

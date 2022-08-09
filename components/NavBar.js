@@ -40,11 +40,7 @@ export default function NavBar() {
 						<a className={styles.navLink}>SIGN-IN</a>
 					</Link>
 				)}
-				<span
-					onClick={() => {
-						toggleCartDropdown(!cartDropdown);
-					}}
-				>
+				<span onClick={toggleCartDropdown}>
 					<CartIcon />
 				</span>
 			</div>
