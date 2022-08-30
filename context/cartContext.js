@@ -45,13 +45,6 @@ export function CartProvider({ children }) {
 	const [{ cartDropdown, cartItems, cartCount, cartTotal }, dispatch] =
 		useReducer(cartReducer, INITIAL_STATE);
 
-	const toggleCartDropdown = () => {
-		dispatch({
-			type: CART_ACTION_TYPES.TOGGLE_CART_DROPDOWN,
-			payload: !cartDropdown,
-		});
-	};
-
 	const updateCartItemsReducer = (newCartItems) => {
 		const newCartCount = newCartItems.reduce(
 			(total, cartItem) => total + cartItem.quantity,
@@ -98,6 +91,13 @@ export function CartProvider({ children }) {
 		);
 		newCartItems[existingItem].quantity = value;
 		updateCartItemsReducer(newCartItems);
+	};
+
+	const toggleCartDropdown = () => {
+		dispatch({
+			type: CART_ACTION_TYPES.TOGGLE_CART_DROPDOWN,
+			payload: !cartDropdown,
+		});
 	};
 
 	return (

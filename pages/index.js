@@ -1,6 +1,21 @@
 import CategoriesContainer from "../components/CategoriesContainer.js";
 
 export default function Home() {
+	// After Migrating App To Redux Somehow it's not working so I moved it to NavBar Component
+	// I guess that's how it is in NextJS
+	// const dispatch = useDispatch();
+	// useEffect(() => {
+	// 	const unsubscribe = onAuthStateChangedListener((user) => {
+	// 		if (user) {
+	// 			createUserDocFromAuth(user);
+	// 		}
+
+	// 		dispatch(setCurrentUser(user));
+	// 	});
+
+	// 	return unsubscribe;
+	// }, []);
+
 	const categories = [
 		{
 			id: 1,

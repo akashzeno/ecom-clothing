@@ -1,16 +1,39 @@
 import Image from "next/image.js";
 import Link from "next/link.js";
-import { useContext } from "react";
-import { UserContext } from "../context/userContext.js";
-import { CartContext } from "../context/cartContext.js";
 import styles from "../styles/NavBar.module.css";
 import { signOutUser } from "../utils/firebase.js";
 import CartIcon from "./CartIcon.js";
 import CartDropdown from "./CartDropdown.js";
+import { useSelector, useDispatch } from "react-redux";
+import { selectCurrentUser } from "../store/user/user_selectors.js";
+import { selectCartDropdown } from "../store/cart/cart_selectors.js";
+import { toggleCartDropdown } from "../store/cart/cart_actions.js";
+import { useEffect } from "react";
+import { setCurrentUser } from "../store/user/user_actions.js";
+import {
+	createUserDocFromAuth,
+	onAuthStateChangedListener,
+} from "../utils/firebase.js";
 
 export default function NavBar() {
-	const { currentUser } = useContext(UserContext);
-	const { cartDropdown, toggleCartDropdown } = useContext(CartContext);
+	const dispatch = useDispatch();
+	const currentUser = useSelector(selectCurrentUser);
+	const cartDropdown = useSelector(selectCartDropdown);
+	const toggleCartDropdownHandler = () => {
+		dispatch(toggleCartDropdown(cartDropdown));
+	};
+
+	useEffect(() => {
+		const unsubscribe = onAuthStateChangedListener((user) => {
+			if (user) {
+				createUserDocFromAuth(user);
+			}
+
+			dispatch(setCurrentUser(user));
+		});
+
+		return unsubscribe;
+	}, []);
 
 	return (
 		<nav className={styles.navBar}>
@@ -40,7 +63,7 @@ export default function NavBar() {
 						<a className={styles.navLink}>SIGN-IN</a>
 					</Link>
 				)}
-				<span onClick={toggleCartDropdown}>
+				<span onClick={toggleCartDropdownHandler}>
 					<CartIcon />
 				</span>
 			</div>

@@ -1,11 +1,20 @@
+import { useDispatch, useSelector } from "react-redux";
+import { setCategories } from "../store/categories/categories_actions.js";
+import { selectCategories } from "../store/categories/categories_selectors.js";
+import { getCollectionAndDocuments } from "../utils/firebase.js";
+import { Fragment, useEffect } from "react";
 import Link from "next/link.js";
-import { Fragment, useContext } from "react";
 import ProductCard from "../components/ProductCard.js";
-import { CategoriesContext } from "../context/categoriesContext.js";
 import styles from "../styles/shop.module.css";
 
 export default function Shop() {
-	const { categories } = useContext(CategoriesContext);
+	const dispatch = useDispatch();
+	useEffect(() => {
+		(async () => {
+			dispatch(setCategories(await getCollectionAndDocuments("categories")));
+		})();
+	}, []);
+	const categories = useSelector(selectCategories);
 	return Object.keys(categories).map((title) => (
 		<Fragment key={title}>
 			<Link href={`/shop/${title}`}>

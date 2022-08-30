@@ -1,14 +1,23 @@
 import Image from "next/image.js";
-import { useContext } from "react";
-import { CartContext } from "../context/cartContext.js";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import {
+	removeItemFromCart,
+	setCartItemQuantity,
+} from "../store/cart/cart_actions.js";
+import { selectCartItems } from "../store/cart/cart_selectors.js";
 import styles from "../styles/CheckoutItem.module.css";
 
 export default function CheckoutItem({ checkoutItem }) {
 	const { name, price, quantity, imageUrl } = checkoutItem;
-	const { removeItemFromCart, setCartItemQuantity } = useContext(CartContext);
+	const dispatch = useDispatch();
+	const cartItems = useSelector(selectCartItems);
 	const changeProductItemQuantity = (event) =>
-		setCartItemQuantity(checkoutItem, parseInt(event.target.value));
-	const removeProductFromCart = () => removeItemFromCart(checkoutItem);
+		dispatch(
+			setCartItemQuantity(checkoutItem, parseInt(event.target.value), cartItems)
+		);
+	const removeProductFromCart = () =>
+		dispatch(removeItemFromCart(checkoutItem, cartItems));
 	return (
 		<div className={styles.checkoutItemContainer}>
 			<div className={styles.imageContainer}>

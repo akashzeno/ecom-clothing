@@ -12,6 +12,9 @@ specifiers:
   react-redux: ^8.0.2
   redux: ^4.2.0
   redux-logger: ^3.0.6
+  redux-persist: ^6.0.0
+  redux-thunk: ^2.4.1
+  reselect: ^4.1.6
 
 dependencies:
   autoprefixer: 10.4.8
@@ -22,6 +25,9 @@ dependencies:
   react-redux: 8.0.2_e42enmjmqb4imi3q3iaq2rrebm
   redux: 4.2.0
   redux-logger: 3.0.6
+  redux-persist: 6.0.0_react@18.2.0+redux@4.2.0
+  redux-thunk: 2.4.1_redux@4.2.0
+  reselect: 4.1.6
 
 devDependencies:
   eslint: 8.17.0
@@ -2399,6 +2405,27 @@ packages:
       deep-diff: 0.3.8
     dev: false
 
+  /redux-persist/6.0.0_react@18.2.0+redux@4.2.0:
+    resolution: {integrity: sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==}
+    peerDependencies:
+      react: '>=16'
+      redux: '>4.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      redux: 4.2.0
+    dev: false
+
+  /redux-thunk/2.4.1_redux@4.2.0:
+    resolution: {integrity: sha512-OOYGNY5Jy2TWvTL1KgAlVy6dcx3siPJ1wTq741EPyUKfn6W6nChdICjZwCd0p8AZBs5kWpZlbkXW2nE/zjUa+Q==}
+    peerDependencies:
+      redux: ^4
+    dependencies:
+      redux: 4.2.0
+    dev: false
+
   /redux/4.2.0:
     resolution: {integrity: sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==}
     dependencies:
@@ -2425,6 +2452,10 @@ packages:
   /require-directory/2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /reselect/4.1.6:
+    resolution: {integrity: sha512-ZovIuXqto7elwnxyXbBtCPo9YFEr3uJqj2rRbcOOog1bmu2Ag85M4hixSwFWyaBMKXNgvPaJ9OSu9SkBPIeJHQ==}
     dev: false
 
   /resolve-from/4.0.0:

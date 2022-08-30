@@ -7,9 +7,9 @@ import {
 import Button from "./Button.js";
 import FormInput from "./FormInput.js";
 export default function SignInForm() {
-	async function signInWithGoogle() {
+	const signInWithGoogle = async () => {
 		await signInWithGooglePopup();
-	}
+	};
 
 	const [formFields, setFormFields] = useState({
 		email: "",

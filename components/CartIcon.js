@@ -1,11 +1,10 @@
 import Image from "next/image.js";
-import { useContext } from "react";
-import { CartContext } from "../context/cartContext.js";
+import { useSelector } from "react-redux";
+import { selectCartCount } from "../store/cart/cart_selectors.js";
 import styles from "../styles/CartIcon.module.css";
 
 export default function CartIcon() {
-	const { cartCount } = useContext(CartContext);
-
+	const cartCount = useSelector(selectCartCount);
 	return (
 		<div className={styles.cartIconContainer}>
 			<Image
