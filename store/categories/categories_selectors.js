@@ -10,3 +10,5 @@ export const selectCategories = createSelector(
 			return acc;
 		}, {})
 );
+
+export const selectCategoriesIsLoading = (state) => state.categories.isLoading;

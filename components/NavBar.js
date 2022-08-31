@@ -19,9 +19,7 @@ export default function NavBar() {
 	const dispatch = useDispatch();
 	const currentUser = useSelector(selectCurrentUser);
 	const cartDropdown = useSelector(selectCartDropdown);
-	const toggleCartDropdownHandler = () => {
-		dispatch(toggleCartDropdown(cartDropdown));
-	};
+	const toggleCartDropdownHandler = () => dispatch(toggleCartDropdown());
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChangedListener((user) => {

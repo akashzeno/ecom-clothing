@@ -33,7 +33,6 @@ export const setCartItemQuantity = (product, value, cartItems) => {
 		payload: newCartItems,
 	};
 };
-export const toggleCartDropdown = (cartDropdown) => ({
+export const toggleCartDropdown = () => ({
 	type: CART_ACTION_TYPES.TOGGLE_CART_DROPDOWN,
-	payload: !cartDropdown,
 });

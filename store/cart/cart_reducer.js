@@ -11,7 +11,7 @@ export function cartReducer(state = CART_INITIAL_STATE, action = {}) {
 		case CART_ACTION_TYPES.TOGGLE_CART_DROPDOWN:
 			return {
 				...state,
-				cartDropdown: payload,
+				cartDropdown: !state.cartDropdown,
 			};
 		case CART_ACTION_TYPES.SET_CART_ITEMS:
 			return {
