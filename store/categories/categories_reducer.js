@@ -21,10 +21,9 @@ export function categoriesReducer(
 				isLoading: false,
 			};
 		case CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILED:
-			console.log(payload);
 			return {
 				...state,
-				error: payload,
+				error: { name: payload.name, message: payload.message },
 				isLoading: false,
 			};
 		default:

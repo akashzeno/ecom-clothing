@@ -1,7 +1,6 @@
 import Image from "next/image.js";
 import Link from "next/link.js";
 import styles from "../styles/NavBar.module.css";
-import { signOutUser } from "../utils/firebase.js";
 import CartIcon from "./CartIcon.js";
 import CartDropdown from "./CartDropdown.js";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,28 +8,16 @@ import { selectCurrentUser } from "../store/user/user_selectors.js";
 import { selectCartDropdown } from "../store/cart/cart_selectors.js";
 import { toggleCartDropdown } from "../store/cart/cart_actions.js";
 import { useEffect } from "react";
-import { setCurrentUser } from "../store/user/user_actions.js";
-import {
-	createUserDocFromAuth,
-	onAuthStateChangedListener,
-} from "../utils/firebase.js";
+import { checkUserSession, signOutStart } from "../store/user/user_actions.js";
 
 export default function NavBar() {
 	const dispatch = useDispatch();
 	const currentUser = useSelector(selectCurrentUser);
 	const cartDropdown = useSelector(selectCartDropdown);
 	const toggleCartDropdownHandler = () => dispatch(toggleCartDropdown());
-
+	const signOutUser = () => dispatch(signOutStart());
 	useEffect(() => {
-		const unsubscribe = onAuthStateChangedListener((user) => {
-			if (user) {
-				createUserDocFromAuth(user);
-			}
-
-			dispatch(setCurrentUser(user));
-		});
-
-		return unsubscribe;
+		dispatch(checkUserSession());
 	}, []);
 
 	return (

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../../components/ProductCard.js";
 import Spinner from "../../components/Spinner.js";
-import { fetchCategoriesAsync } from "../../store/categories/categories_actions.js";
+import { fetchCategoriesStart } from "../../store/categories/categories_actions.js";
 import {
 	selectCategories,
 	selectCategoriesIsLoading,
@@ -14,7 +14,7 @@ export default function Category() {
 	const { category } = useRouter().query;
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(fetchCategoriesAsync());
+		dispatch(fetchCategoriesStart());
 	}, []);
 	const isLoading = useSelector(selectCategoriesIsLoading);
 	const categories = useSelector(selectCategories);

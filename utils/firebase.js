@@ -35,10 +35,7 @@ provider.setCustomParameters({ prompt: "select_account" });
 export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 export const db = getFirestore();
-export const addCollectionAndDocuments = async (
-	collectionKey,
-	objectsToAdd
-) => {
+export async function addCollectionAndDocuments(collectionKey, objectsToAdd) {
 	const collectionRef = collection(db, collectionKey);
 	const batch = writeBatch(db);
 	objectsToAdd.forEach((object) => {
@@ -47,12 +44,12 @@ export const addCollectionAndDocuments = async (
 	});
 	await batch.commit();
 	console.log("Done");
-};
-export const getCollectionAndDocuments = async (collectionKey) => {
+}
+export async function getCollectionAndDocuments(collectionKey) {
 	const collectionRef = collection(db, collectionKey);
 	const querySnapshot = await getDocs(query(collectionRef));
 	return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
-};
+}
 export async function createUserDocFromAuth(
 	userAuth,
 	additionalInformation = {}
@@ -76,7 +73,7 @@ export async function createUserDocFromAuth(
 			console.log(`error creating user ${error.message}`);
 		}
 	}
-	return userDocRef;
+	return userSnapshot;
 }
 
 export async function createAuthUserWithEmailAndPassword(email, password) {
@@ -90,3 +87,16 @@ export async function signInAuthUserWithEmailAndPassword(email, password) {
 export const signOutUser = async () => signOut(auth);
 export const onAuthStateChangedListener = (callback) =>
 	onAuthStateChanged(auth, callback);
+
+export function getCurrentUser() {
+	return new Promise((resolve, reject) => {
+		const unsubscribe = onAuthStateChanged(
+			auth,
+			(userAuth) => {
+				unsubscribe();
+				resolve(userAuth);
+			},
+			reject
+		);
+	});
+}

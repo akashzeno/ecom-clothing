@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCategoriesAsync } from "../store/categories/categories_actions.js";
+import { fetchCategoriesStart } from "../store/categories/categories_actions.js";
 import {
 	selectCategories,
 	selectCategoriesIsLoading,
@@ -13,7 +13,7 @@ import Spinner from "../components/Spinner.js";
 export default function Shop() {
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(fetchCategoriesAsync());
+		dispatch(fetchCategoriesStart());
 	}, []);
 	const categories = useSelector(selectCategories);
 	const isLoading = useSelector(selectCategoriesIsLoading);
