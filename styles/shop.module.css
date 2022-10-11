@@ -10,4 +10,10 @@
 	column-gap: 0.625rem;
 	row-gap: 3.125rem;
 	justify-items: center;
+
+	@media screen and (max-width: 800px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 15px;
+	}
 }
