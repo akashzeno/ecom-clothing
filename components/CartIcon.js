@@ -10,8 +10,8 @@ export default function CartIcon() {
 			<Image
 				className={styles.cartIcon}
 				src="/shopping-bag.svg"
-				width={24}
-				height={24}
+				width="24"
+				height="24"
 				alt="Cart Icon"
 			/>
 			<span className={styles.itemCount}>{cartCount}</span>

@@ -5,7 +5,7 @@ export default function CartItem({
 }) {
 	return (
 		<div className={styles.cartItemContainer}>
-			<Image src={imageUrl} alt={name} width="70%" height="100%" />
+			<Image src={imageUrl} alt={name} width="50" height="70" />
 			<div className={styles.itemDetails}>
 				<span className={styles.name}>{name}</span>
 				<span className={styles.price}>

@@ -1,5 +1,5 @@
 import Image from "next/image.js";
-import { useDispatch , useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart } from "../store/cart/cart_actions.js";
 import { selectCartItems } from "../store/cart/cart_selectors.js";
 import styles from "../styles/ProductCard.module.css";
@@ -12,7 +12,7 @@ export default function ProductCard({ product }) {
 	const addProductToCart = () => dispatch(addItemToCart(product, cartItems));
 	return (
 		<div className={styles.productCardContainer}>
-			<Image src={imageUrl} alt={name} width={450} height={500} />
+			<Image src={imageUrl} alt={name} width="450" height="500" />
 			<div className={styles.footer}>
 				<span className={styles.name}>{name}</span>
 				<span className={styles.price}>{price}</span>

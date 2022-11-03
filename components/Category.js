@@ -6,9 +6,8 @@ export default function Category({ category: { title, imageUrl } }) {
 		<div className={styles.category}>
 			<Image
 				className={styles.backgroundImage}
-				layout="fill"
+				fill
 				src={imageUrl}
-				objectFit="cover"
 				alt="background image"
 			></Image>
 			<div className={styles.categoryBodyContainer}>

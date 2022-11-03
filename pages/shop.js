@@ -23,9 +23,7 @@ export default function Shop() {
 		Object.keys(categories).map((title) => (
 			<Fragment key={title}>
 				<Link href={`/shop/${title}`}>
-					<a>
-						<h2 className={styles.categoryTitle}>{title.toUpperCase()}</h2>
-					</a>
+					<h2 className={styles.categoryTitle}>{title.toUpperCase()}</h2>
 				</Link>
 				<div className={styles.productsContainer}>
 					{categories[title].map((product, index) => {

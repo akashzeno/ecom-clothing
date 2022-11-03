@@ -9,25 +9,25 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@stripe/react-stripe-js": "^1.10.0",
-		"@stripe/stripe-js": "^1.35.0",
-		"autoprefixer": "^10.4.7",
-		"firebase": "^9.8.3",
-		"next": "12.1.6",
+		"@stripe/react-stripe-js": "^1.14.2",
+		"@stripe/stripe-js": "^1.42.1",
+		"autoprefixer": "^10.4.13",
+		"firebase": "^9.13.0",
+		"next": "13.0.1",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"react-redux": "^8.0.2",
+		"react-redux": "^8.0.4",
 		"redux": "^4.2.0",
 		"redux-logger": "^3.0.6",
 		"redux-persist": "^6.0.0",
 		"redux-saga": "^1.2.1",
 		"redux-thunk": "^2.4.1",
 		"reselect": "^4.1.6",
-		"stripe": "^10.7.0"
+		"stripe": "^10.15.0"
 	},
 	"devDependencies": {
-		"eslint": "8.17.0",
-		"eslint-config-next": "12.1.6",
-		"postcss-nested": "^5.0.6"
+		"eslint": "8.26.0",
+		"eslint-config-next": "13.0.1",
+		"postcss-nested": "^6.0.0"
 	}
 }

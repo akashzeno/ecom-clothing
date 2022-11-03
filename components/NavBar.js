@@ -22,30 +22,26 @@ export default function NavBar() {
 
 	return (
 		<nav className={styles.navBar}>
-			<Link href="/">
-				<a className={styles.logoContainer}>
-					<Image
-						src="/crown.svg"
-						className={styles.logo}
-						width={50}
-						height={39}
-						alt="logo"
-					/>
-				</a>
+			<Link href="/" className={styles.logoContainer}>
+				<Image
+					src="/crown.svg"
+					className={styles.logo}
+					width="50"
+					height="39"
+					alt="logo"
+				/>
 			</Link>
 			<div className={styles.navLinksContainer}>
-				<Link href="/shop">
-					<a className={styles.navLink}>SHOP</a>
+				<Link href="/shop" className={styles.navLink}>
+					SHOP
 				</Link>
 				{currentUser ? (
-					<Link href="/auth">
-						<a className={styles.navLink} onClick={signOutUser}>
-							SIGN-OUT
-						</a>
+					<Link href="/auth" className={styles.navLink} onClick={signOutUser}>
+						SIGN-OUT
 					</Link>
 				) : (
-					<Link href="/auth">
-						<a className={styles.navLink}>SIGN-IN</a>
+					<Link href="/auth" className={styles.navLink}>
+						SIGN-IN
 					</Link>
 				)}
 				<span onClick={toggleCartDropdownHandler}>

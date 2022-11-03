@@ -21,7 +21,7 @@ export default function CheckoutItem({ checkoutItem }) {
 	return (
 		<div className={styles.checkoutItemContainer}>
 			<div className={styles.imageContainer}>
-				<Image src={imageUrl} width={150} height={150} alt={name} />
+				<Image src={imageUrl} width="150" height="150" alt={name} />
 			</div>
 			<span className={styles.name}>{name}</span>
 			<span className={styles.quantity}>

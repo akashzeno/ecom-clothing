@@ -7,9 +7,7 @@ export default function CategoriesContainer({ categories }) {
 		<div className={styles.categoriesContainer}>
 			{categories.map((category) => (
 				<Link key={category.id} href={`/shop/${category.title}`}>
-					<a>
-						<Category category={category} />
-					</a>
+					<Category category={category} />
 				</Link>
 			))}
 		</div>

@@ -16,10 +16,8 @@ export default function CartDropdown() {
 					<span>Your Cart Is Empty!</span>
 				)}
 			</div>
-			<Link href="/checkout">
-				<a className={styles.cartCheckout}>
-					<Button>CHECKOUT</Button>
-				</a>
+			<Link href="/checkout" className={styles.cartCheckout}>
+				<Button>CHECKOUT</Button>
 			</Link>
 		</div>
 	);
