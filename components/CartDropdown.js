@@ -2,11 +2,14 @@ import Link from "next/link";
 import styles from "../styles/CartDropdown.module.css";
 import Button from "./Button.js";
 import CartItem from "./CartItem.js";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectCartItems } from "../store/cart/cart_selectors.js";
+import { toggleCartDropdown } from "../store/cart/cart_actions.js";
+
 export default function CartDropdown() {
 	const cartItems = useSelector(selectCartItems);
-
+	const dispatch = useDispatch();
+	const toggleCartDropdownHandler = () => dispatch(toggleCartDropdown());
 	return (
 		<div className={styles.cartDropdownContainer}>
 			<div className={styles.cartItems}>
@@ -17,7 +20,7 @@ export default function CartDropdown() {
 				)}
 			</div>
 			<Link href="/checkout" className={styles.cartCheckout}>
-				<Button>CHECKOUT</Button>
+				<Button onClick={toggleCartDropdownHandler}>CHECKOUT</Button>
 			</Link>
 		</div>
 	);
