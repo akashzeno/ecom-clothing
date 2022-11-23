@@ -22,9 +22,9 @@
 		width: 23%;
 	}
 
-	.quantity {
+	.quantityInput {
 		display: flex;
-
+		width: 50%;
 		.arrow {
 			cursor: pointer;
 		}

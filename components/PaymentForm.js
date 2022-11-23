@@ -44,7 +44,7 @@ export default function PaymentForm() {
 		}
 	};
 	return (
-		<div className={styles.paymentFromContainer}>
+		<div className={styles.paymentFormContainer}>
 			<form className={styles.formContainer} onSubmit={paymentHandler}>
 				<h2>Credit Card Payment: </h2>
 				<CardElement />

@@ -26,7 +26,7 @@ export default function CheckoutItem({ checkoutItem }) {
 			<span className={styles.name}>{name}</span>
 			<span className={styles.quantity}>
 				<input
-					className={styles.quantity}
+					className={styles.quantityInput}
 					type="number"
 					defaultValue={quantity}
 					min={1}
